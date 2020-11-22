@@ -1,0 +1,196 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    color: white;
+    font-size: 21px;
+}
+
+h3,h4,h5{
+    color: white;
+    font-size: 17px;
+    text-shadow: 0px 0px 6px #1e5799;
+}
+
+.max_temp, .min_temp{
+    color: white;
+    font-size: 14px;
+    text-shadow: 0px 0px 6px #1e5799;
+}
+
+#address-input{
+    border-radius: 20px;
+    margin-bottom: 30px;   
+    margin-top: 30px;
+}
+
+
+@keyframes transX {
+    0% {opacity: 0; top:25px;left:48%; }
+    30% {opacity: 0; }
+    100% { opacity:1; top:25px; left:50%; }
+  }
+
+  @keyframes transY {
+    0% {opacity: 0; top:250px;left:50%; }
+    30% {opacity: 0; }
+    85% { opacity:.7; top:2px; left:50%; }
+    100% { opacity:1; top:10px; left:50%; }
+  }
+
+
+.mysearch {
+
+    position:relative;
+
+    button#findPlace {
+        position: absolute;
+        top:0;
+        right:0;
+        z-index: 2;
+    }
+
+    svg{
+        display: none;
+    }
+
+}
+
+    #carouselExampleIndicators {
+        background: linear-gradient(to bottom, #1e5799 0%,#207cca 51%,#7db9e8 100%); 
+        border-radius:10px ;
+        filter: drop-shadow(0 2px 6px  #207cca);
+    }
+
+    .carousel-item{        
+
+        .today{
+            display:none;
+        }
+                
+        .forecast-card{     
+            position: relative;                   
+            border: none;
+            text-align: center;
+            padding: 90px 0 15px 0;     
+            
+            h3.title{                
+                display: inline-block;
+                opacity:0;
+                position: absolute;
+                top:25px;
+                left:50%;
+            }    
+            
+            &>*{
+                margin: auto;
+            }
+            
+            & img{
+                min-width: 140px;
+            }          
+
+            .card-text-info{
+                position:relative;
+                bottom: 0;             
+                padding: 10px;
+                width:100%;
+                height:165px;
+            }
+
+            .card-text-transition{        
+                opacity:0;
+            }
+            
+        }
+        
+    }
+
+
+    .carousel-item.active {
+        
+        .forecast-card{                     
+                          
+            h3.title{
+                opacity:1; 
+                transform: translateX(-50%);
+                animation: transX 0.6s linear;
+            }        
+
+            .card-text-info{
+                position:relative;
+                bottom: 0;                
+                
+                padding: 10px;
+                width:100%;
+                height:165px;
+                overflow: hidden;
+            }
+
+            .card-text-transition{
+                display: inline-block;
+                opacity:1;
+                position: absolute;
+                top:10px;
+                left:50%;
+                transform: translateX(-50%);
+
+                animation: transY 0.8s ease-in;
+            }
+        }
+        
+    }
+
+    .carousel-item.first{
+
+        h3,h4,h5, .max_temp, .min_temp{
+            font-weight: 600;
+            color: white;   
+            text-shadow: 0px 0px 4px #1e5799;
+        }  
+        
+        .today{
+            color: white;
+            font-size: 12px;
+            display: block;
+            position: absolute;
+            top:60px;
+            right: 20px;
+            width: 50px;
+            height:50px;
+            border-radius: 50%;
+            background-color: rgba(220,20,60, 0.7);
+            vertical-align: middle;
+            filter: drop-shadow(0 2px 5px  crimson);
+        
+            span{
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+        
+        }
+
+
+
+    }
